@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ajax Demo</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var theObject = new XMLHttpRequest();
+
+      theObject.open('GET', "javascript.php", true);
+
+      theObject.onreadystatechange = function(){
+        if(theObject.readyState == 4 && theObject.status == 200)
+
+        document.getElementById("container").innerHTML == theObject.responseText;
+      }
+
+      theObject.send();
+
+    </script>
+
+    <button onclick="init()">Send Info</button>
+
+    <div class="container">
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="./assets/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+    <script>
+        $(document).ready(function(){
+
+            
+
+            setInterval(function(){
+                update_cars();
+
+            }, 500);
+
+            // SHOW CARS
+            function update_cars(){
+            
+            $.ajax({
+                url: 'display_cars.php',
+                type: 'POST',
+                success: function(show_cars){
+                    if (!show_cars.error) {
+                        $("#show-cars").html(show_cars);
+                    }
+                }
+            });
+            
+            $('#search').keyup(function(){
+
+                var search = $('#search').val();
+
+               $.ajax({
+                   url:'search.php',
+                   data:{search:search},
+                   type: 'POST',
+                   success: function(data) {
+                       if (!data.error) {
+                           $('#result').html(data);
+                       }
+                   }
+               })
+            });
+
+                
+            }
+
+            // ADD CARS NAME TO DB
+
+            $("#add-car-form").submit(function(evt){
+                evt.preventDefault();
+
+                var postData = $(this).serialize();
+                var url = $(this).attr('action');
+
+                // alert(postData);
+
+                $.post(url, postData, function(php_table_data){
+                    $("#car-result").html(php_table_data);
+                    $("#add-car-form")[0].reset();
+
+                });
+            });
+
+         }); //DOCUMENT READY
+    </script>
+
+
+<div id="container" class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+    <h2>Search Database</h2>
+    <input class="form-control" type="text" type="text" name="search" id="search" placeholder="Search">
+    <br/>
+    <br/>
+    <h2 class="bg-success" id="result"></h2>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 offset-sm-3">
+        <form method="post" id="add-car-form" action="add_cars.php">
+            <div class="form-group">
+                <label for="car_name">Add Car</label>
+                <input type="text" name="car_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Car" class="btn btn-primary">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+    <div class="row">
+        
+        <div class="col-sm-6">
+           
+           <table class="table">
+               <thead>
+                   <tr>
+                       <th>Id</th>
+                       <th>Name</th>
+                   </tr>
+               </thead>
+                   <tbody id="show-cars"></tbody>
+                   
+           </table>
+           
+        </div>
+
+        <div class="col-sm-6">
+            <p id="feedback" class="bg-success"></p>
+            <div id="action-container">
+               
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+</body>
+</html>
