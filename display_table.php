@@ -2,7 +2,7 @@
 include("db.php");
 
 
-$query = "SELECT * FROM zone_one";
+$query = "SELECT * FROM zone_one ORDER BY goals DESC";
 $query_table_info = mysqli_query($connect, $query);
 
 
@@ -10,15 +10,17 @@ if (!$query_table_info) {
     die("Query failed" . mysqli_error($connect));
 }
 
+$number = 1;
 while ($row = mysqli_fetch_array($query_table_info)) {
     echo "<tr>";
-    echo "<td>{$row['id']}</td>";
+    echo "<td>{$number}</td>";
     echo "<td>{$row['player_name']}</td>";
     echo "<td>{$row['club']}</td>";
     echo "<td class='text-center'>{$row['goals']}</td>";
     echo "<td class='text-center'><a rel='" . $row['id'] . "'class='upd-link btn btn-warning btn-sm' href='javascript:void(0)'>Edit</a></td>";
     echo "<td class='text-center'><a rel='" . $row['id'] . "'class='del-link btn btn-danger btn-sm' href='javascript:void(0)'>Del</a></td>";
     echo "</tr>";
+    ++$number;
 }
 
 if (isset($_POST['deletethis'])) {
