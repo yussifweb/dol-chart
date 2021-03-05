@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <script src="./assets/jquery-3.5.1.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <script src="../assets/jquery-3.5.1.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -89,13 +89,17 @@
     <div id="container" class="container">
         <nav class="nav">
             <ul>
-                <li class="nav-item"><a href="./zone-one/index.php">Zone 1</a></li>
-                <li class="nav-item"><a href="./zone-two/index.php">Zone 2</a></li>
-                <li class="nav-item"><a href="./zone-three/index.php">Zone 3</a></li>
+                <li class="nav-item"><a href="../zone-one/index.php">Zone 1</a></li>
+                <li class="nav-item"><a href="../zone-two/index.php">Zone 2</a></li>
+                <li class="nav-item"><a href="../zone-three/index.php">Zone 3</a></li>
             </ul>
         </nav>
 
-        
+        <h1 class="text-center mt-3">Division One League 2020 - 21</h1>
+        <h2 class="text-center">Goal King Chart - Zone 1</h2>
+
+
+
         <div class="row">
             <div class="col-sm-6 offset-sm-3">
                 <h2>Search Database</h2>

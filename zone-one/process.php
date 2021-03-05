@@ -10,7 +10,7 @@ if (isset($_POST['id'])) {
     $id = mysqli_real_escape_string($connect, $_POST['id']);
 
 
-    $query = "SELECT * FROM zone_four WHERE id = {$id}";
+    $query = "SELECT * FROM zone_one WHERE id = {$id}";
     $query_table_info = mysqli_query($connect, $query);
 
 
@@ -49,7 +49,7 @@ if (isset($_POST['updatethis'])) {
     $club = mysqli_real_escape_string($connect, $_POST['club']);
     $goals = mysqli_real_escape_string($connect, $_POST['goals']);
 
-    $query = "UPDATE zone_four SET player_name = '$player_name', club = '$club', goals = '$goals' WHERE id = $id ";
+    $query = "UPDATE zone_one SET player_name = '$player_name', club = '$club', goals = '$goals' WHERE id = $id ";
     $result_set = mysqli_query($connect, $query);
 
     if (!$result_set) {
@@ -64,7 +64,7 @@ if (isset($_POST['deletethis'])) {
     $id = mysqli_real_escape_string($connect, $_POST['id']);
     $id = $_POST['id'];
 
-    $query = "DELETE FROM zone_four WHERE id = $id ";
+    $query = "DELETE FROM zone_one WHERE id = $id ";
     $result_set = mysqli_query($connect, $query);
 
     if (!$result_set) {

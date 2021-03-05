@@ -1,0 +1,28 @@
+
+
+thead tr{
+    text-transform: uppercase;
+}
+
+
+.table-green{
+    background-color:#00802b;
+}
+
+.table-green tr{
+    color: white;
+}
+
+.table-green tr:nth-child(even) {
+    background-color: #009933;    
+}
+
+.table-teal-green {
+    background-color: #006D5B;
+    color: white !important;
+}
+
+.table-teal-green tr:nth-child(even) {
+    background-color: #018a73;
+    color: white !important;
+}

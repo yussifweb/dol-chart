@@ -2,7 +2,7 @@
 include("db.php");
 
 
-$query = "SELECT * FROM zone_four ORDER BY goals DESC";
+$query = "SELECT * FROM zone_three ORDER BY goals DESC";
 $query_table_info = mysqli_query($connect, $query);
 
 
@@ -28,7 +28,7 @@ if (isset($_POST['deletethis'])) {
     $id = mysqli_real_escape_string($connect, $_POST['id']);
     $id = $_POST['id'];
 
-    $query = "DELETE FROM zone_four WHERE id = $id ";
+    $query = "DELETE FROM zone_three WHERE id = $id ";
     $result_set = mysqli_query($connect, $query);
 
     if (!$result_set) {
