@@ -20,21 +20,19 @@ if (isset($_POST['id'])) {
 
     while ($row = mysqli_fetch_array($query_table_info)) {
 
-        echo "<div class='modal-dialog modal-dialog-centered' id='id' rel='" . $row['id'] . "'>";
-        echo "<div class='modal-content'>";
-        echo "<div class='modal-header'>";
-        echo "<h5 class='modal-title'>{$row['player_name']}</h5>";
-        echo "<button type='button' class='btn btn-close close'></button>";
+        echo "<div class='modal-content' id='update'>";
+        echo "<div id='id' rel='" . $row['id'] . "' class='modal-header'>";
+        echo "<h5 class='modal-title' id='updateplayerModalLabel'>{$row['player_name']}</h5>";
+        echo "<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>";
         echo "</div>";
         echo "<div class='modal-body row'>";
-        echo "<div class='col-sm-5'><input type='text' class='form-control player-name' value='" . $row['player_name'] . "'></div>";
-        echo "<div class='col-sm-5'><input type='text' class='form-control club' value='" . $row['club'] . "'></div>";
-        echo "<div class='col-sm-2'><input type='number' class='form-control goals' value='" . $row['goals'] . "'></div>";
+        echo "<div class='col-sm-5 mb-2'><input type='text' class='form-control upd-player-name' value='" . $row['player_name'] . "'></div>";
+        echo "<div class='col-sm-5 mb-2'><input type='text' class='form-control upd-club' value='" . $row['club'] . "'></div>";
+        echo "<div class='col-sm-2 mb-2'><input type='number' class='form-control upd-goals' value='" . $row['goals'] . "'></div>";
         echo "</div>";
         echo "<div class='modal-footer'>";
-        echo "<button rel='" . $row['id'] . "' type='button' class='btn btn-danger delete'>Delete</button>";
-        echo "<button type='button' class='btn btn-primary update'>Save</button>";
-        echo "</div>";
+        echo "<button rel='" . $row['id'] . "' type='button' class='btn btn-danger delete' data-bs-dismiss='modal'>Delete</button>";
+        echo "<button type='button' class='btn btn-primary update' data-bs-dismiss='modal'>Save</button>";
         echo "</div>";
         echo "</div>";
     }
@@ -87,13 +85,13 @@ if (isset($_POST['deletethis'])) {
 
         // EXTRACT INFO
 
-        $(".modal").on('input', function() {
+        $("#update").on('input', function() {
             id = $('#id').attr('rel');
-            player_name = $('.player-name').val();
-            club = $('.club').val();
-            goals = $('.goals').val();
+            player_name = $('.upd-player-name').val();
+            club = $('.upd-club').val();
+            goals = $('.upd-goals').val();
             // console.log(id);
-            // console.log(id, player_name, club, goals);
+            //console.log(id, player_name, club, goals);
         });
 
 
@@ -111,7 +109,6 @@ if (isset($_POST['deletethis'])) {
                 updatethis: updatethis
             }, function(data) {
                 // alert("Updated Succesfully");
-                $(".modal").hide();
                 $("#feedback").text("Updated Succesfully");
 
             });
@@ -129,12 +126,10 @@ if (isset($_POST['deletethis'])) {
                     id: id,
                     deletethis: deletethis
                 }, function(data) {
+
                     alert("Done");
                     // alert("Updated Succesfully");
                     // $("#feedback").text("Deleted Succesfully");
-
-                    $(".modal").hide();
-
                 });
             }
 
@@ -142,9 +137,8 @@ if (isset($_POST['deletethis'])) {
 
         // CLOSE BUTTON
         $(".close").on('click', function() {
-            $(".modal").hide();
+            $("#updateplayerModal").hide();
         });
-
 
     });
 </script>

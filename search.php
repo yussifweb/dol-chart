@@ -30,7 +30,7 @@ if (!empty($search)) {
 
                 ?>
             </ul>
-
+            
 <?php
         }
     }

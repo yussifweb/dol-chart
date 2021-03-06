@@ -12,6 +12,10 @@
     <script src="../assets/jquery-3.5.1.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&family=Roboto+Slab:wght@300;400;500&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
@@ -100,7 +104,7 @@
 
 
         <div class="row">
-            <div class="col-sm-6 offset-sm-3">
+            <div class="col-sm-6 col-xs-12 offset-sm-3">
                 <h2>Search Database</h2>
                 <input class="form-control" type="text" type="text" name="search" id="search" placeholder="Search">
                 <br />
@@ -110,7 +114,7 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-6 offset-sm-3">
+            <div class="col-sm-6 col-xs-12 offset-sm-3">
                 <form method="post" id="add-table-form" action="add_tables.php">
                     <div class="row">
                         <div class="col-sm-5 mb-3">
@@ -134,7 +138,7 @@
 
         <div class="row mt-5">
 
-            <div class="col-sm-8 offset-sm-2">
+            <div class="col-sm-8 col-xs-12 offset-sm-2">
                 <div id="action-container" class="mb-3">
 
                 </div>

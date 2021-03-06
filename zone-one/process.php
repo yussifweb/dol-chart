@@ -19,12 +19,9 @@ if (isset($_POST['id'])) {
     }
 
     while ($row = mysqli_fetch_array($query_table_info)) {
-
-        echo "<div class='modal-dialog modal-dialog-centered' id='id' rel='" . $row['id'] . "'>";
-        echo "<div class='modal-content'>";
-        echo "<div class='modal-header'>";
-        echo "<h5 class='modal-title'>{$row['player_name']}</h5>";
-        echo "<button type='button' class='btn btn-close close'></button>";
+        echo "<div class='modal-header' id='id' rel='" . $row['id'] . "'>";
+        echo "<h5 class='modal-title' id='updateplayerModalLabel'>{$row['player_name']}</h5>";
+        echo "<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>";
         echo "</div>";
         echo "<div class='modal-body row'>";
         echo "<div class='col-sm-5'><input type='text' class='form-control player-name' value='" . $row['player_name'] . "'></div>";
@@ -35,8 +32,7 @@ if (isset($_POST['id'])) {
         echo "<button rel='" . $row['id'] . "' type='button' class='btn btn-danger delete'>Delete</button>";
         echo "<button type='button' class='btn btn-primary update'>Save</button>";
         echo "</div>";
-        echo "</div>";
-        echo "</div>";
+
     }
 }
 

@@ -17,7 +17,8 @@ while ($row = mysqli_fetch_array($query_table_info)) {
     echo "<td>{$row['player_name']}</td>";
     echo "<td>{$row['club']}</td>";
     echo "<td class='text-center'>{$row['goals']}</td>";
-    echo "<td class='text-center'><a rel='" . $row['id'] . "'class='upd-link btn btn-warning btn-sm' href='javascript:void(0)'><i class='fas fa-pencil-alt'></i></a></td>";
+    echo "<td class='text-center'><a type='button' rel='" . $row['id'] . "' class='upd-link btn btn-warning btn-sm' 
+    data-bs-toggle='modal' data-bs-target='#updateplayerModal' href='javascript:void(0)'><i class='fas fa-pencil-alt'></i></a></td>";
     echo "<td class='text-center'><a rel='" . $row['id'] . "'class='del-link btn btn-danger btn-sm' href='javascript:void(0)'><i class='fas fa-trash-alt'></i></a></td>";
     echo "</tr>";
     // ++$number;
@@ -36,17 +37,14 @@ if (isset($_POST['deletethis'])) {
     }
 }
 
-
 ?>
 
 
 <script>
     $(document).ready(function() {
-        // $("#action-container").hide();
         
         $(".upd-link").on('click', function() {
             // alert('Click');
-            $('.modal').show();
 
             var id = $(this).attr("rel");
             // alert(id);
@@ -54,7 +52,7 @@ if (isset($_POST['deletethis'])) {
                 id: id
             }, function(data) {
                 // alert(data)
-                $(".modal").html(data);
+                $("#updateplayer").html(data);
 
             });
         });
@@ -73,8 +71,6 @@ if (isset($_POST['deletethis'])) {
                 }, function(data) {
                     alert("Done");
                     // alert("Updated Succesfully");
-                    // $("#feedback").text("Deleted Succesfully");
-
                     $("#action-container").hide();
 
                 });
