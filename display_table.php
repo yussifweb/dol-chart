@@ -1,5 +1,5 @@
 <?php
-include("db.php");
+include("./inc/db.php");
 
 
 $query = "SELECT * FROM zone_four ORDER BY goals DESC";

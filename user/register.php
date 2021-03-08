@@ -1,15 +1,10 @@
 <?php $title = "Register"; ?>
-<?php require 'header.php';
-
-if (!$_SESSION['email']) {
-  header('Location: index.php');
-}
-?>
+<?php include "../inc/header.php"; ?>
 
 
 <main class="container mt-5">
   <div class="row">
-    <div class="col-12 col-sm-4 offset-sm-4">
+    <div class="col-xs-12 col-sm-4 offset-sm-4">
       <div class="card">
         <div class="card-header text-center h3">DOL</div>
         <div class="card-body">
@@ -58,4 +53,4 @@ if (!$_SESSION['email']) {
 
 
 
-<?php require 'footer.php'; ?>
+<?php include "../inc/footer.php"; ?>

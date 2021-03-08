@@ -1,5 +1,5 @@
 <?php $title = "New Password"; ?>
-<?php require 'header.php'; ?>
+<?php include "../inc/header.php"; ?>
 
 <main class="container">
   <div class="row">

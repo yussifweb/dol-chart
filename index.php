@@ -1,5 +1,6 @@
-<?php $title = "Home" ?>
-<?php require 'header.php'; ?>
+<?php $title = "Home"; ?>
+
+<?php include "inc/header.php"; ?>
 
 <script>
     $(document).ready(function() {
@@ -64,6 +65,8 @@
     }); //DOCUMENT READY
 </script>
 
+
+
 <!-- Modal -->
 <div class="modal fade" id="addplayerModal" tabindex="-1" aria-labelledby="addplayerModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -121,13 +124,13 @@
     <div class="row">
         <div class="col-sm-6 col-xs-12 offset-sm-3">
             <!-- Button trigger modal -->
-<?php
-if ((isset($_SESSION["email"]) && $_SESSION["email"] == $email)) {
-           echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#addplayerModal'>
+            <?php
+            if ((isset($_SESSION["email"]) && $_SESSION["email"] == $email)) {
+                echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#addplayerModal'>
                 Add Player
             </button>";
-}
-?>
+            }
+            ?>
 
         </div>
     </div>
@@ -146,11 +149,11 @@ if ((isset($_SESSION["email"]) && $_SESSION["email"] == $email)) {
                         <th>Name</th>
                         <th>Club</th>
                         <th class="text-center">Goal(s)</th>
-<?php
-if ((isset($_SESSION["email"]) && $_SESSION["email"] == $email)) {
-                        echo "<th class='text-center'>Edit</th>";
-                        echo "<th class='text-center'>Delete</th>";
-}?>
+                        <?php
+                        if ((isset($_SESSION["email"]) && $_SESSION["email"] == $email)) {
+                            echo "<th class='text-center'>Edit</th>";
+                            echo "<th class='text-center'>Delete</th>";
+                        } ?>
                     </tr>
                 </thead>
                 <tbody id="show-table">
@@ -165,4 +168,4 @@ if ((isset($_SESSION["email"]) && $_SESSION["email"] == $email)) {
 
 </div>
 
-<?php require 'footer.php'; ?>
+<?php include "inc/footer.php"; ?>

@@ -1,5 +1,6 @@
 <?php
 
+require "../inc/db.php";
 // REGISTER USER
 
 if (isset($_POST['register'])) {
@@ -43,7 +44,7 @@ if (isset($_POST['register'])) {
         $level = 50;
         $sql = "INSERT INTO users (name, contact, email, password, level) VALUES ( '$name', '$contact', '$email', '$password', '$level' )";
         if (mysqli_query($connect, $sql)) {
-            header('Location: index.php');
+            header('Location: ../index.php');
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($connect);
         }
@@ -65,7 +66,7 @@ if (isset($_POST['login'])) {
             if ($email == $user['email'] && $password == $user['password']) {
                 $_SESSION['email'] = $email;
 
-                header('Location: index.php');
+                header('Location: ../index.php');
             } else {
                 echo '<script>
     alert("Error username or password incorrect!");
@@ -168,7 +169,7 @@ if (isset($_POST['reset'])) {
             $new_password = md5($new_password);
             $sql = "UPDATE users SET password='$new_password' WHERE email='$email'";
             $results = mysqli_query($connect, $sql);
-            header('location: index.php');
+            header('location: reset.php');
         }
     }
 }

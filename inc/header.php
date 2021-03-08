@@ -1,28 +1,25 @@
 <?php
-require 'db.php';
 session_start();
 
-// if ($_SESSION['isloggedin'] == true) {
-//     session_start();
-// }
+include ("db.php");
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOL | <?php echo $title ?></title>
-
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <script src="./assets/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <script src="./assets/js/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&family=Roboto+Slab:wght@300;400;500&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500&family=Roboto+Slab:wght@300;400;500&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -54,7 +51,7 @@ session_start();
                     <?php
                     if ((isset($_SESSION["email"]) && $_SESSION["email"] == $email)) {
 
-                        echo "<a class='btn btn-danger' href='logout.php' role='button'>Log Out</a>";
+                        echo "<a class='btn btn-danger' href='../logout.php' role='button'>Log Out</a>";
 
                         $level = $_SESSION["email"];
                         $sql = "SELECT * FROM users WHERE email='$level'";
@@ -63,14 +60,14 @@ session_start();
                             while ($user = mysqli_fetch_assoc($result)) {
                                 $level = $user['level'];
                                 if ($level == 100) {
-                                    echo '<a class="btn btn-primary" href="user/register.php" role="button">Register</a>';
+                                    echo '<a class="btn btn-primary" href="../user/register.php" role="button">Register</a>';
                     ?>
                     <?php
                                 }
                             }
                         }
                     } else {
-                        echo "<a class='btn btn-primary' href='user/login.php' role='button'>Login</a>";
+                        echo "<a class='btn btn-primary' href='../user/login.php' role='button'>Login</a>";
                     }
                     ?>
                 </div>
