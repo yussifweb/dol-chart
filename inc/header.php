@@ -37,13 +37,13 @@ include ("db.php");
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="zone_one/index.php">Zone 1 <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/zone_one/index.php">Zone 1 <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="zone_two/index.php">Zone 2</a>
+                        <a class="nav-link" href="/zone_two/index.php">Zone 2</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="zone_three/index.php">Zone 3</a>
+                        <a class="nav-link" href="/zone_three/index.php">Zone 3</a>
                     </li>
                 </ul>
                 <div class="me-2 my-lg-0">

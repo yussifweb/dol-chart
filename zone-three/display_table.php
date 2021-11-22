@@ -1,8 +1,8 @@
 <?php
-include("db.php");
+include("./inc/db.php");
 
 
-$query = "SELECT * FROM zone_three ORDER BY goals DESC";
+$query = "SELECT * FROM zone_four ORDER BY goals DESC";
 $query_table_info = mysqli_query($connect, $query);
 
 
@@ -17,8 +17,13 @@ while ($row = mysqli_fetch_array($query_table_info)) {
     echo "<td>{$row['player_name']}</td>";
     echo "<td>{$row['club']}</td>";
     echo "<td class='text-center'>{$row['goals']}</td>";
-    echo "<td class='text-center'><a rel='" . $row['id'] . "'class='upd-link btn btn-warning btn-sm' href='javascript:void(0)'><i class='fas fa-pencil-alt'></i></a></td>";
+
+if ((isset($_SESSION["email"]) && $_SESSION["email"] == $email)) {
+
+    echo "<td class='text-center'><a type='button' rel='" . $row['id'] . "' class='upd-link btn btn-warning btn-sm' 
+    data-bs-toggle='modal' data-bs-target='#updateplayerModal' href='javascript:void(0)'><i class='fas fa-pencil-alt'></i></a></td>";
     echo "<td class='text-center'><a rel='" . $row['id'] . "'class='del-link btn btn-danger btn-sm' href='javascript:void(0)'><i class='fas fa-trash-alt'></i></a></td>";
+}
     echo "</tr>";
     // ++$number;
 }
@@ -28,7 +33,7 @@ if (isset($_POST['deletethis'])) {
     $id = mysqli_real_escape_string($connect, $_POST['id']);
     $id = $_POST['id'];
 
-    $query = "DELETE FROM zone_three WHERE id = $id ";
+    $query = "DELETE FROM zone_four WHERE id = $id ";
     $result_set = mysqli_query($connect, $query);
 
     if (!$result_set) {
@@ -36,17 +41,14 @@ if (isset($_POST['deletethis'])) {
     }
 }
 
-
 ?>
 
 
 <script>
     $(document).ready(function() {
-        // $("#action-container").hide();
         
         $(".upd-link").on('click', function() {
             // alert('Click');
-            $('.modal').show();
 
             var id = $(this).attr("rel");
             // alert(id);
@@ -54,7 +56,7 @@ if (isset($_POST['deletethis'])) {
                 id: id
             }, function(data) {
                 // alert(data)
-                $(".modal").html(data);
+                $("#updateplayer").html(data);
 
             });
         });
@@ -73,8 +75,6 @@ if (isset($_POST['deletethis'])) {
                 }, function(data) {
                     alert("Done");
                     // alert("Updated Succesfully");
-                    // $("#feedback").text("Deleted Succesfully");
-
                     $("#action-container").hide();
 
                 });

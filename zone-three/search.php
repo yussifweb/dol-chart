@@ -7,7 +7,7 @@ include("db.php");
 $search = $_POST['search'];
 
 if (!empty($search)) {
-    $query = "SELECT * FROM zone_three WHERE player_name LIKE '$search%' ";
+    $query = "SELECT * FROM zone_four WHERE player_name LIKE '$search%' ";
     $search_query = mysqli_query($connect, $query);
     $count = mysqli_num_rows($search_query);
 
@@ -30,7 +30,7 @@ if (!empty($search)) {
 
                 ?>
             </ul>
-
+            
 <?php
         }
     }
